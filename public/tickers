@@ -148,12 +148,16 @@ before we stop it.</p>
       
       
       <p class="next">
-        Next example: <a href="worker-pools">Worker Pools</a>.
+        Siguiente ejemplo: <a href="worker-pools">Worker Pools</a>.
       </p>
       
 
-    <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+     <p class="footer">
+      by <a href="https://markmcgranaghan.com" target="_blank">Mark McGranaghan</a> and <a
+        href="https://eli.thegreenplace.net" target="_blank">Eli
+        Bendersky</a> | <a href="https://github.com/domini-code/gobyexample" target="_blank">source</a> | <a
+        href="https://github.com/domini-code/gobyexample#license" target="_blank">licencia</a>
+      | <a href="https://twitter.com/bezael_perez" target="_blank">traducido por Bezael</a>
     </p>
 
     </div>
