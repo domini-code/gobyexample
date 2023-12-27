@@ -29,9 +29,9 @@
 
       <tr>
         <td class="docs">
-          <p>Go has various value types including strings,
-            integers, floats, booleans, etc. Here are a few
-            basic examples.</p>
+          <p>Go tiene varios tipos de valores, incluidas strings,
+            integers, floats, booleans, etc. A continuación se muestran algunos
+            ejemplos básicos.</p>
 
         </td>
         <td class="code empty leading">
@@ -76,8 +76,7 @@
 
       <tr>
         <td class="docs">
-          <p>Strings, which can be added together with <code>+</code>.</p>
-
+          <p>Strings, se pueden concatenar con el simbolo<code>+</code>.</p>
         </td>
         <td class="code leading">
 
@@ -88,7 +87,7 @@
 
       <tr>
         <td class="docs">
-          <p>Integers and floats.</p>
+          <p>Integers y floats.</p>
 
         </td>
         <td class="code leading">
@@ -101,8 +100,7 @@
 
       <tr>
         <td class="docs">
-          <p>Booleans, with boolean operators as you&rsquo;d expect.</p>
-
+          <p>Booleans, con operadores booleanos como esperarías</p>
         </td>
         <td class="code">
 
