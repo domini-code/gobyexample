@@ -1,74 +1,83 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Go by Example: Closures</title>
-    <link rel=stylesheet href="site.css">
-  </head>
-  <script>
-      onkeydown = (e) => {
-          
-          if (e.key == "ArrowLeft") {
-              window.location.href = 'variadic-functions';
-          }
-          
-          
-          if (e.key == "ArrowRight") {
-              window.location.href = 'recursion';
-          }
-          
-      }
-  </script>
-  <body>
-    <div class="example" id="closures">
-      <h2><a href="./">Go by Example</a>: Closures</h2>
-      
-      <table>
-        
-        <tr>
-          <td class="docs">
-            <p>Go supports <a href="https://en.wikipedia.org/wiki/Anonymous_function"><em>anonymous functions</em></a>,
-which can form <a href="https://en.wikipedia.org/wiki/Closure_(computer_science)"><em>closures</em></a>.
-Anonymous functions are useful when you want to define
-a function inline without having to name it.</p>
 
-          </td>
-          <td class="code empty leading">
-            
-          
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-            <a href="https://go.dev/play/p/NpgpzS8ZG8y"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-            
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>This function <code>intSeq</code> returns another function, which
-we define anonymously in the body of <code>intSeq</code>. The
-returned function <em>closes over</em> the variable <code>i</code> to
-form a closure.</p>
+<head>
+  <meta charset="utf-8">
+  <title>Go by Example: Closures</title>
+  <link rel=stylesheet href="site.css">
+</head>
+<script>
+  onkeydown = (e) => {
 
-          </td>
-          <td class="code leading">
-            
+    if (e.key == "ArrowLeft") {
+      window.location.href = 'variadic-functions';
+    }
+
+
+    if (e.key == "ArrowRight") {
+      window.location.href = 'recursion';
+    }
+
+  }
+</script>
+
+<body>
+  <div class="example" id="closures">
+    <h2><a href="./">Go by Example</a>: Closures</h2>
+
+    <table>
+
+      <tr>
+        <td class="docs">
+          <p>Go soporta <a href="https://en.wikipedia.org/wiki/Anonymous_function" target="_blank">
+              <em>funciones anónimas</em></a>, las cuales pueden formar <a
+              href="https://en.wikipedia.org/wiki/Closure_(computer_science)" target="_blank"><em>cierres</em></a>
+            (closures).
+            Las funciones anónimas son útiles cuando quieres definir
+            una función en línea sin necesidad de nombrarla.</p>
+        </td>
+        <td class="code empty leading">
+
+        </td>
+      </tr>
+
+      <tr>
+        <td class="docs">
+
+        </td>
+        <td class="code leading">
+          <a href="https://go.dev/play/p/NpgpzS8ZG8y"><img title="Run code" src="play.png" class="run" /></a><img
+            title="Copy code" src="clipboard.png" class="copy" />
+          <pre
+            class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="docs">
+
+        </td>
+        <td class="code leading">
+
+          <pre
+            class="chroma"><code><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span></span></span></code></pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="docs">
+          <!--       <p>This function <code>intSeq</code> returns another function, which
+            we define anonymously in the body of <code>intSeq</code>. The
+            returned function <em>closes over</em> the variable <code>i</code> to
+            form a closure.</p> -->
+          <p>Esta función <code>intSeq</code> devuelve otra función, la cual
+            definimos de manera anónima en el cuerpo de <code>intSeq</code>. La
+            función devuelta <em>cierra sobre</em> la variable <code>i</code> para
+            formar un cierre (closure).</p>
+
+        </td>
+        <td class="code leading">
+
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">intSeq</span><span class="p">()</span> <span class="kd">func</span><span class="p">()</span> <span class="kt">int</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kd">func</span><span class="p">()</span> <span class="kt">int</span> <span class="p">{</span>
@@ -76,100 +85,109 @@ form a closure.</p>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">i</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-            
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>We call <code>intSeq</code>, assigning the result (a function)
-to <code>nextInt</code>. This function value captures its
-own <code>i</code> value, which will be updated each time
-we call <code>nextInt</code>.</p>
+        </td>
+      </tr>
 
-          </td>
-          <td class="code leading">
-            
-          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="nx">nextInt</span> <span class="o">:=</span> <span class="nf">intSeq</span><span class="p">()</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>See the effect of the closure by calling <code>nextInt</code>
-a few times.</p>
+      <tr>
+        <td class="docs">
 
-          </td>
-          <td class="code leading">
-            
-          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">nextInt</span><span class="p">())</span>
+        </td>
+        <td class="code leading">
+
+          <pre
+            class="chroma"><code><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span></span></span></code></pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="docs">
+
+
+          <p>Llamamos a <code>intSeq</code>, asignando el resultado (una función)
+            a <code>nextInt</code>. Este valor de función captura su
+            propio valor de <code>i</code>, el cual será actualizado cada vez
+            que llamemos a <code>nextInt</code>.</p>
+
+        </td>
+        <td class="code leading">
+
+          <pre
+            class="chroma"><code><span class="line"><span class="cl">    <span class="nx">nextInt</span> <span class="o">:=</span> <span class="nf">intSeq</span><span class="p">()</span></span></span></code></pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="docs">
+
+          <p>Observa el efecto del cierre llamando a <code>nextInt</code>
+            unas cuantas veces.</p>
+
+        </td>
+        <td class="code leading">
+
+          <pre
+            class="chroma"><code><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">nextInt</span><span class="p">())</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">nextInt</span><span class="p">())</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">nextInt</span><span class="p">())</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>To confirm that the state is unique to that
-particular function, create and test a new one.</p>
+        </td>
+      </tr>
 
-          </td>
-          <td class="code">
-            
+      <tr>
+        <td class="docs">
+
+          <p>Para confirmar que el estado es único para esa
+            función en particular, crea y prueba una nueva.</p>
+
+        </td>
+        <td class="code">
+
           <pre class="chroma"><code><span class="line"><span class="cl">    <span class="nx">newInts</span> <span class="o">:=</span> <span class="nf">intSeq</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">newInts</span><span class="p">())</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-      </table>
-      
-      <table>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-            
+        </td>
+      </tr>
+
+    </table>
+
+    <table>
+
+      <tr>
+        <td class="docs">
+
+        </td>
+        <td class="code leading">
+
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="gp">$</span> go run closures.go
 </span></span><span class="line"><span class="cl"><span class="go">1
 </span></span></span><span class="line"><span class="cl"><span class="go">2
 </span></span></span><span class="line"><span class="cl"><span class="go">3
 </span></span></span><span class="line"><span class="cl"><span class="go">1</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>The last feature of functions we&rsquo;ll look at for now is
-recursion.</p>
+        </td>
+      </tr>
 
-          </td>
-          <td class="code empty">
-            
-          
-          </td>
-        </tr>
-        
-      </table>
-      
-      
-      <p class="next">
-        Siguiente ejemplo: <a href="recursion">Recursion</a>.
-      </p>
-      
+      <tr>
+        <td class="docs">
 
-     <p class="footer">
+          <p>La última característica de las funciones que veremos por ahora es
+            la recursividad.</p>
+
+
+        </td>
+        <td class="code empty">
+
+
+        </td>
+      </tr>
+
+    </table>
+
+
+    <p class="next">
+      Siguiente ejemplo: <a href="recursion">Recursion</a>.
+    </p>
+
+
+    <p class="footer">
       by <a href="https://markmcgranaghan.com" target="_blank">Mark McGranaghan</a> and <a
         href="https://eli.thegreenplace.net" target="_blank">Eli
         Bendersky</a> | <a href="https://github.com/domini-code/gobyexample" target="_blank">source</a> | <a
@@ -177,11 +195,12 @@ recursion.</p>
       | <a href="https://twitter.com/bezael_perez" target="_blank">traducido por Bezael</a>
     </p>
 
-    </div>
-    <script>
-      var codeLines = [];
-      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import \"fmt\"\u000A');codeLines.push('func intSeq() func() int {\u000A    i :\u003D 0\u000A    return func() int {\u000A        i++\u000A        return i\u000A    }\u000A}\u000A');codeLines.push('func main() {\u000A');codeLines.push('    nextInt :\u003D intSeq()\u000A');codeLines.push('    fmt.Println(nextInt())\u000A    fmt.Println(nextInt())\u000A    fmt.Println(nextInt())\u000A');codeLines.push('    newInts :\u003D intSeq()\u000A    fmt.Println(newInts())\u000A}\u000A');codeLines.push('');codeLines.push('');
-    </script>
-    <script src="site.js" async></script>
-  </body>
+  </div>
+  <script>
+    var codeLines = [];
+    codeLines.push(''); codeLines.push('package main\u000A'); codeLines.push('import \"fmt\"\u000A'); codeLines.push('func intSeq() func() int {\u000A    i :\u003D 0\u000A    return func() int {\u000A        i++\u000A        return i\u000A    }\u000A}\u000A'); codeLines.push('func main() {\u000A'); codeLines.push('    nextInt :\u003D intSeq()\u000A'); codeLines.push('    fmt.Println(nextInt())\u000A    fmt.Println(nextInt())\u000A    fmt.Println(nextInt())\u000A'); codeLines.push('    newInts :\u003D intSeq()\u000A    fmt.Println(newInts())\u000A}\u000A'); codeLines.push(''); codeLines.push('');
+  </script>
+  <script src="site.js" async></script>
+</body>
+
 </html>
