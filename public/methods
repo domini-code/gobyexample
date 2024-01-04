@@ -1,180 +1,200 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Go by Example: Methods</title>
-    <link rel=stylesheet href="site.css">
-  </head>
-  <script>
-      onkeydown = (e) => {
-          
-          if (e.key == "ArrowLeft") {
-              window.location.href = 'structs';
-          }
-          
-          
-          if (e.key == "ArrowRight") {
-              window.location.href = 'interfaces';
-          }
-          
-      }
-  </script>
-  <body>
-    <div class="example" id="methods">
-      <h2><a href="./">Go by Example</a>: Methods</h2>
-      
-      <table>
-        
-        <tr>
-          <td class="docs">
-            <p>Go supports <em>methods</em> defined on struct types.</p>
 
-          </td>
-          <td class="code empty leading">
-            
-          
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-            <a href="https://go.dev/play/p/4wmDCAydC1e"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-            
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-            
+<head>
+  <meta charset="utf-8">
+  <title>Go by Example: Methods</title>
+  <link rel=stylesheet href="site.css">
+</head>
+<script>
+  onkeydown = (e) => {
+
+    if (e.key == "ArrowLeft") {
+      window.location.href = 'structs';
+    }
+
+
+    if (e.key == "ArrowRight") {
+      window.location.href = 'interfaces';
+    }
+
+  }
+</script>
+
+<body>
+  <div class="example" id="methods">
+    <h2><a href="./">Go by Example</a>: Methods</h2>
+
+    <table>
+
+      <tr>
+        <td class="docs">
+          <!--    <p>Go supports <em>methods</em> defined on struct types.</p> -->
+          <p>Go soporta <em>métodos</em> definidos en tipos de estructuras (structs).</p>
+
+        </td>
+        <td class="code empty leading">
+
+
+        </td>
+      </tr>
+
+      <tr>
+        <td class="docs">
+
+        </td>
+        <td class="code leading">
+          <a href="https://go.dev/play/p/4wmDCAydC1e"><img title="Run code" src="play.png" class="run" /></a><img
+            title="Copy code" src="clipboard.png" class="copy" />
+          <pre
+            class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="docs">
+
+        </td>
+        <td class="code leading">
+
+          <pre
+            class="chroma"><code><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span></span></span></code></pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="docs">
+
+        </td>
+        <td class="code leading">
+
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">rect</span> <span class="kd">struct</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">width</span><span class="p">,</span> <span class="nx">height</span> <span class="kt">int</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>This <code>area</code> method has a <em>receiver type</em> of <code>*rect</code>.</p>
+        </td>
+      </tr>
 
-          </td>
-          <td class="code leading">
-            
+      <tr>
+        <td class="docs">
+          <!--  <p>This <code>area</code> method has a <em>receiver type</em> of <code>*rect</code>.</p> -->
+          <p>Este método <code>area</code> tiene un <em>tipo receptor</em> de <code>*rect</code>.</p>
+
+
+        </td>
+        <td class="code leading">
+
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">r</span> <span class="o">*</span><span class="nx">rect</span><span class="p">)</span> <span class="nf">area</span><span class="p">()</span> <span class="kt">int</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">r</span><span class="p">.</span><span class="nx">width</span> <span class="o">*</span> <span class="nx">r</span><span class="p">.</span><span class="nx">height</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Methods can be defined for either pointer or value
-receiver types. Here&rsquo;s an example of a value receiver.</p>
+        </td>
+      </tr>
 
-          </td>
-          <td class="code leading">
-            
+      <tr>
+        <td class="docs">
+          <!--   <p>Methods can be defined for either pointer or value
+            receiver types. Here&rsquo;s an example of a value receiver.</p> -->
+          <p>Los métodos pueden ser definidos para tipos de receptores tanto de puntero como de valor. Aquí hay un
+            ejemplo de un
+            receptor de valor.</p>
+        </td>
+        <td class="code leading">
+
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">r</span> <span class="nx">rect</span><span class="p">)</span> <span class="nf">perim</span><span class="p">()</span> <span class="kt">int</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="nx">r</span><span class="p">.</span><span class="nx">width</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="nx">r</span><span class="p">.</span><span class="nx">height</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-            
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="docs">
+
+        </td>
+        <td class="code leading">
+
+          <pre
+            class="chroma"><code><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">r</span> <span class="o">:=</span> <span class="nx">rect</span><span class="p">{</span><span class="nx">width</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="nx">height</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Here we call the 2 methods defined for our struct.</p>
+        </td>
+      </tr>
 
-          </td>
-          <td class="code leading">
-            
-          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;area: &#34;</span><span class="p">,</span> <span class="nx">r</span><span class="p">.</span><span class="nf">area</span><span class="p">())</span>
+      <tr>
+        <td class="docs">
+          <!--  <p>Here we call the 2 methods defined for our struct.</p> -->
+          <p>Aquí llamamos a los 2 métodos definidos para nuestra estructura.</p>
+
+
+
+        </td>
+        <td class="code leading">
+
+          <pre
+            class="chroma"><code><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;area: &#34;</span><span class="p">,</span> <span class="nx">r</span><span class="p">.</span><span class="nf">area</span><span class="p">())</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;perim:&#34;</span><span class="p">,</span> <span class="nx">r</span><span class="p">.</span><span class="nf">perim</span><span class="p">())</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Go automatically handles conversion between values
-and pointers for method calls. You may want to use
-a pointer receiver type to avoid copying on method
-calls or to allow the method to mutate the
-receiving struct.</p>
+        </td>
+      </tr>
 
-          </td>
-          <td class="code">
-            
+      <tr>
+        <td class="docs">
+          <!--     <p>Go automatically handles conversion between values
+            and pointers for method calls. You may want to use
+            a pointer receiver type to avoid copying on method
+            calls or to allow the method to mutate the
+            receiving struct.</p> -->
+          <p>Go maneja automáticamente la conversión entre valores
+            y punteros para llamadas a métodos. Puedes querer usar
+            un tipo de receptor de puntero para evitar copiar en llamadas a métodos o para permitir que el método mute
+            la
+            estructura receptora.</p>
+
+        </td>
+        <td class="code">
+
           <pre class="chroma"><code><span class="line"><span class="cl">    <span class="nx">rp</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">r</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;area: &#34;</span><span class="p">,</span> <span class="nx">rp</span><span class="p">.</span><span class="nf">area</span><span class="p">())</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;perim:&#34;</span><span class="p">,</span> <span class="nx">rp</span><span class="p">.</span><span class="nf">perim</span><span class="p">())</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-      </table>
-      
-      <table>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-            
+        </td>
+      </tr>
+
+    </table>
+
+    <table>
+
+      <tr>
+        <td class="docs">
+
+        </td>
+        <td class="code leading">
+
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="gp">$</span> go run methods.go 
 </span></span><span class="line"><span class="cl"><span class="go">area:  50
 </span></span></span><span class="line"><span class="cl"><span class="go">perim: 30
 </span></span></span><span class="line"><span class="cl"><span class="go">area:  50
 </span></span></span><span class="line"><span class="cl"><span class="go">perim: 30</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Next we&rsquo;ll look at Go&rsquo;s mechanism for grouping and
-naming related sets of methods: interfaces.</p>
+        </td>
+      </tr>
 
-          </td>
-          <td class="code empty">
-            
-          
-          </td>
-        </tr>
-        
-      </table>
-      
-      
-      <p class="next">
-        Siguiente ejemplo: <a href="interfaces">Interfaces</a>.
-      </p>
-      
+      <tr>
+        <td class="docs">
+          <p>A continuación, veremos el mecanismo de Go para agrupar y
+            nombrar conjuntos relacionados de métodos: interfaces.</p>
 
-     <p class="footer">
+        </td>
+        <td class="code empty">
+
+
+        </td>
+      </tr>
+
+    </table>
+
+
+    <p class="next">
+      Siguiente ejemplo: <a href="interfaces">Interfaces</a>.
+    </p>
+
+
+    <p class="footer">
       by <a href="https://markmcgranaghan.com" target="_blank">Mark McGranaghan</a> and <a
         href="https://eli.thegreenplace.net" target="_blank">Eli
         Bendersky</a> | <a href="https://github.com/domini-code/gobyexample" target="_blank">source</a> | <a
@@ -182,11 +202,12 @@ naming related sets of methods: interfaces.</p>
       | <a href="https://twitter.com/bezael_perez" target="_blank">traducido por Bezael</a>
     </p>
 
-    </div>
-    <script>
-      var codeLines = [];
-      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import \"fmt\"\u000A');codeLines.push('type rect struct {\u000A    width, height int\u000A}\u000A');codeLines.push('func (r *rect) area() int {\u000A    return r.width * r.height\u000A}\u000A');codeLines.push('func (r rect) perim() int {\u000A    return 2*r.width + 2*r.height\u000A}\u000A');codeLines.push('func main() {\u000A    r :\u003D rect{width: 10, height: 5}\u000A');codeLines.push('    fmt.Println(\"area: \", r.area())\u000A    fmt.Println(\"perim:\", r.perim())\u000A');codeLines.push('    rp :\u003D \u0026r\u000A    fmt.Println(\"area: \", rp.area())\u000A    fmt.Println(\"perim:\", rp.perim())\u000A}\u000A');codeLines.push('');codeLines.push('');
-    </script>
-    <script src="site.js" async></script>
-  </body>
+  </div>
+  <script>
+    var codeLines = [];
+    codeLines.push(''); codeLines.push('package main\u000A'); codeLines.push('import \"fmt\"\u000A'); codeLines.push('type rect struct {\u000A    width, height int\u000A}\u000A'); codeLines.push('func (r *rect) area() int {\u000A    return r.width * r.height\u000A}\u000A'); codeLines.push('func (r rect) perim() int {\u000A    return 2*r.width + 2*r.height\u000A}\u000A'); codeLines.push('func main() {\u000A    r :\u003D rect{width: 10, height: 5}\u000A'); codeLines.push('    fmt.Println(\"area: \", r.area())\u000A    fmt.Println(\"perim:\", r.perim())\u000A'); codeLines.push('    rp :\u003D \u0026r\u000A    fmt.Println(\"area: \", rp.area())\u000A    fmt.Println(\"perim:\", rp.perim())\u000A}\u000A'); codeLines.push(''); codeLines.push('');
+  </script>
+  <script src="site.js" async></script>
+</body>
+
 </html>
