@@ -1,195 +1,233 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Go by Example: WaitGroups</title>
-    <link rel=stylesheet href="site.css">
-  </head>
-  <script>
-      onkeydown = (e) => {
-          
-          if (e.key == "ArrowLeft") {
-              window.location.href = 'worker-pools';
-          }
-          
-          
-          if (e.key == "ArrowRight") {
-              window.location.href = 'rate-limiting';
-          }
-          
-      }
-  </script>
-  <body>
-    <div class="example" id="waitgroups">
-      <h2><a href="./">Go by Example</a>: WaitGroups</h2>
-      
-      <table>
-        
-        <tr>
-          <td class="docs">
-            <p>To wait for multiple goroutines to finish, we can
-use a <em>wait group</em>.</p>
 
-          </td>
-          <td class="code empty leading">
-            
-          
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-            <a href="https://go.dev/play/p/S98GjeaGBX0"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-            
+<head>
+  <meta charset="utf-8">
+  <title>Go by Example: WaitGroups</title>
+  <link rel=stylesheet href="site.css">
+</head>
+<script>
+  onkeydown = (e) => {
+
+    if (e.key == "ArrowLeft") {
+      window.location.href = 'worker-pools';
+    }
+
+
+    if (e.key == "ArrowRight") {
+      window.location.href = 'rate-limiting';
+    }
+
+  }
+</script>
+
+<body>
+  <div class="example" id="waitgroups">
+    <h2><a href="./">Go by Example</a>: WaitGroups</h2>
+
+    <table>
+
+      <tr>
+        <td class="docs">
+          <!--   <p>To wait for multiple goroutines to finish, we can
+            use a <em>wait group</em>.</p> -->
+          <p>Para esperar a que múltiples goroutines terminen, podemos
+            usar un <em>grupo de espera</em>.</p>
+
+
+        </td>
+        <td class="code empty leading">
+
+
+        </td>
+      </tr>
+
+      <tr>
+        <td class="docs">
+
+        </td>
+        <td class="code leading">
+          <a href="https://go.dev/play/p/S98GjeaGBX0"><img title="Run code" src="play.png" class="run" /></a><img
+            title="Copy code" src="clipboard.png" class="copy" />
+          <pre
+            class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="docs">
+
+        </td>
+        <td class="code leading">
+
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
 </span></span><span class="line"><span class="cl">    <span class="s">&#34;fmt&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="s">&#34;sync&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="s">&#34;time&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">)</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>This is the function we&rsquo;ll run in every goroutine.</p>
+        </td>
+      </tr>
 
-          </td>
-          <td class="code leading">
-            
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">worker</span><span class="p">(</span><span class="nx">id</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+      <tr>
+        <td class="docs">
+          <!--  <p>This is the function we&rsquo;ll run in every goroutine.</p> -->
+          <p>Esta es la función que ejecutaremos en cada goroutine.</p>
+        </td>
+        <td class="code leading">
+
+          <pre
+            class="chroma"><code><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">worker</span><span class="p">(</span><span class="nx">id</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Worker %d starting\n&#34;</span><span class="p">,</span> <span class="nx">id</span><span class="p">)</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Sleep to simulate an expensive task.</p>
+        </td>
+      </tr>
 
-          </td>
-          <td class="code leading">
-            
+      <tr>
+        <td class="docs">
+          <!--  <p>Sleep to simulate an expensive task.</p> -->
+          <p>Dormir para simular una tarea costosa.</p>
+
+
+        </td>
+        <td class="code leading">
+
           <pre class="chroma"><code><span class="line"><span class="cl">    <span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Worker %d done\n&#34;</span><span class="p">,</span> <span class="nx">id</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-            
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>This WaitGroup is used to wait for all the
-goroutines launched here to finish. Note: if a WaitGroup is
-explicitly passed into functions, it should be done <em>by pointer</em>.</p>
+        </td>
+      </tr>
 
-          </td>
-          <td class="code leading">
-            
-          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">wg</span> <span class="nx">sync</span><span class="p">.</span><span class="nx">WaitGroup</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Launch several goroutines and increment the WaitGroup
-counter for each.</p>
+      <tr>
+        <td class="docs">
 
-          </td>
-          <td class="code leading">
-            
-          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+        </td>
+        <td class="code leading">
+
+          <pre
+            class="chroma"><code><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span></span></span></code></pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="docs">
+          <!--  <p>This WaitGroup is used to wait for all the
+            goroutines launched here to finish. Note: if a WaitGroup is
+            explicitly passed into functions, it should be done <em>by pointer</em>.</p> -->
+          <p>Este WaitGroup se utiliza para esperar a que todas las
+            goroutines lanzadas aquí terminen. Nota: si un WaitGroup es
+            explícitamente pasado a funciones, debe hacerse <em>por puntero</em>.</p>
+        </td>
+        <td class="code leading">
+
+          <pre
+            class="chroma"><code><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">wg</span> <span class="nx">sync</span><span class="p">.</span><span class="nx">WaitGroup</span></span></span></code></pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="docs">
+          <!--    <p>Launch several goroutines and increment the WaitGroup
+            counter for each.</p> -->
+          <p>Lanzar varias goroutines e incrementar el contador de WaitGroup
+            para cada una.</p>
+
+
+
+        </td>
+        <td class="code leading">
+
+          <pre
+            class="chroma"><code><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="nx">wg</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Avoid re-use of the same <code>i</code> value in each goroutine closure.
-See <a href="https://golang.org/doc/faq#closures_and_goroutines">the FAQ</a>
-for more details.</p>
+        </td>
+      </tr>
 
-          </td>
-          <td class="code leading">
-            
-          <pre class="chroma"><code><span class="line"><span class="cl">        <span class="nx">i</span> <span class="o">:=</span> <span class="nx">i</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Wrap the worker call in a closure that makes sure to tell
-the WaitGroup that this worker is done. This way the worker
-itself does not have to be aware of the concurrency primitives
-involved in its execution.</p>
+      <tr>
+        <td class="docs">
+          <!-- <p>Avoid re-use of the same <code>i</code> value in each goroutine closure.
+            See <a href="https://golang.org/doc/faq#closures_and_goroutines">the FAQ</a>
+            for more details.</p> -->
+          <p>Evitar la reutilización del mismo valor de <code>i</code> en cada cierre de goroutine.
+            Consulta <a href="https://golang.org/doc/faq#closures_and_goroutines" target="_blank">las preguntas
+              frecuentes</a>
+            para más detalles.</p>
 
-          </td>
-          <td class="code leading">
-            
+        </td>
+        <td class="code leading">
+
+          <pre
+            class="chroma"><code><span class="line"><span class="cl">        <span class="nx">i</span> <span class="o">:=</span> <span class="nx">i</span></span></span></code></pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="docs">
+          <!--  <p>Wrap the worker call in a closure that makes sure to tell
+            the WaitGroup that this worker is done. This way the worker
+            itself does not have to be aware of the concurrency primitives
+            involved in its execution.</p> -->
+          <p>Envolver la llamada al trabajador en un cierre que se asegure de decirle
+            al WaitGroup que este trabajador ha terminado. De esta manera, el trabajador
+            mismo no tiene que ser consciente de los primitivos de concurrencia
+            involucrados en su ejecución.</p>
+
+        </td>
+        <td class="code leading">
+
           <pre class="chroma"><code><span class="line"><span class="cl">        <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="k">defer</span> <span class="nx">wg</span><span class="p">.</span><span class="nf">Done</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">            <span class="nf">worker</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}()</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Block until the WaitGroup counter goes back to 0;
-all the workers notified they&rsquo;re done.</p>
+        </td>
+      </tr>
 
-          </td>
-          <td class="code leading">
-            
-          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="nx">wg</span><span class="p">.</span><span class="nf">Wait</span><span class="p">()</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Note that this approach has no straightforward way
-to propagate errors from workers. For more
-advanced use cases, consider using the
-<a href="https://pkg.go.dev/golang.org/x/sync/errgroup">errgroup package</a>.</p>
+      <tr>
+        <td class="docs">
+          <!--  <p>Block until the WaitGroup counter goes back to 0;
+            all the workers notified they&rsquo;re done.</p> -->
+          <p>Bloquear hasta que el contador de WaitGroup vuelva a 0;
+            todos los trabajadores notificaron que han terminado.</p>
+        </td>
+        <td class="code leading">
 
-          </td>
-          <td class="code">
-            
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-      </table>
-      
-      <table>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-            
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="gp">$</span> go run waitgroups.go
+          <pre
+            class="chroma"><code><span class="line"><span class="cl">    <span class="nx">wg</span><span class="p">.</span><span class="nf">Wait</span><span class="p">()</span></span></span></code></pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="docs">
+          <!--  <p>Note that this approach has no straightforward way
+            to propagate errors from workers. For more
+            advanced use cases, consider using the
+            <a href="https://pkg.go.dev/golang.org/x/sync/errgroup">errgroup package</a>.
+          </p>
+ -->
+          <p>Nota que este enfoque no tiene una manera sencilla
+            de propagar errores desde los trabajadores. Para casos de uso
+            más avanzados, considera usar el
+            <a href="https://pkg.go.dev/golang.org/x/sync/errgroup" target="_blank">paquete errgroup</a>.
+          </p>
+        </td>
+        <td class="code">
+
+          <pre
+            class="chroma"><code><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre>
+        </td>
+      </tr>
+
+    </table>
+
+    <table>
+
+      <tr>
+        <td class="docs">
+
+        </td>
+        <td class="code leading">
+
+          <pre
+            class="chroma"><code><span class="line"><span class="cl"><span class="gp">$</span> go run waitgroups.go
 </span></span><span class="line"><span class="cl"><span class="go">Worker 5 starting
 </span></span></span><span class="line"><span class="cl"><span class="go">Worker 3 starting
 </span></span></span><span class="line"><span class="cl"><span class="go">Worker 4 starting
@@ -200,30 +238,31 @@ advanced use cases, consider using the
 </span></span></span><span class="line"><span class="cl"><span class="go">Worker 2 done
 </span></span></span><span class="line"><span class="cl"><span class="go">Worker 5 done
 </span></span></span><span class="line"><span class="cl"><span class="go">Worker 3 done</span></span></span></code></pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>The order of workers starting up and finishing
-is likely to be different for each invocation.</p>
+        </td>
+      </tr>
 
-          </td>
-          <td class="code empty">
-            
-          
-          </td>
-        </tr>
-        
-      </table>
-      
-      
-      <p class="next">
-        Siguiente ejemplo: <a href="rate-limiting">Rate Limiting</a>.
-      </p>
-      
+      <tr>
+        <td class="docs">
+          <!--  <p>The order of workers starting up and finishing
+            is likely to be different for each invocation.</p> -->
+          <p>El orden en que los trabajadores comienzan y terminan
+            probablemente sea diferente en cada invocación.</p>
+        </td>
+        <td class="code empty">
 
-     <p class="footer">
+
+        </td>
+      </tr>
+
+    </table>
+
+
+    <p class="next">
+      Siguiente ejemplo: <a href="rate-limiting">Rate Limiting</a>.
+    </p>
+
+
+    <p class="footer">
       by <a href="https://markmcgranaghan.com" target="_blank">Mark McGranaghan</a> and <a
         href="https://eli.thegreenplace.net" target="_blank">Eli
         Bendersky</a> | <a href="https://github.com/domini-code/gobyexample" target="_blank">source</a> | <a
@@ -231,11 +270,12 @@ is likely to be different for each invocation.</p>
       | <a href="https://twitter.com/bezael_perez" target="_blank">traducido por Bezael</a>
     </p>
 
-    </div>
-    <script>
-      var codeLines = [];
-      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"sync\"\u000A    \"time\"\u000A)\u000A');codeLines.push('func worker(id int) {\u000A    fmt.Printf(\"Worker %d starting\\n\", id)\u000A');codeLines.push('    time.Sleep(time.Second)\u000A    fmt.Printf(\"Worker %d done\\n\", id)\u000A}\u000A');codeLines.push('func main() {\u000A');codeLines.push('    var wg sync.WaitGroup\u000A');codeLines.push('    for i :\u003D 1; i \u003C\u003D 5; i++ {\u000A        wg.Add(1)\u000A');codeLines.push('        i :\u003D i\u000A');codeLines.push('        go func() {\u000A            defer wg.Done()\u000A            worker(i)\u000A        }()\u000A    }\u000A');codeLines.push('    wg.Wait()\u000A');codeLines.push('}\u000A');codeLines.push('');codeLines.push('');
-    </script>
-    <script src="site.js" async></script>
-  </body>
+  </div>
+  <script>
+    var codeLines = [];
+    codeLines.push(''); codeLines.push('package main\u000A'); codeLines.push('import (\u000A    \"fmt\"\u000A    \"sync\"\u000A    \"time\"\u000A)\u000A'); codeLines.push('func worker(id int) {\u000A    fmt.Printf(\"Worker %d starting\\n\", id)\u000A'); codeLines.push('    time.Sleep(time.Second)\u000A    fmt.Printf(\"Worker %d done\\n\", id)\u000A}\u000A'); codeLines.push('func main() {\u000A'); codeLines.push('    var wg sync.WaitGroup\u000A'); codeLines.push('    for i :\u003D 1; i \u003C\u003D 5; i++ {\u000A        wg.Add(1)\u000A'); codeLines.push('        i :\u003D i\u000A'); codeLines.push('        go func() {\u000A            defer wg.Done()\u000A            worker(i)\u000A        }()\u000A    }\u000A'); codeLines.push('    wg.Wait()\u000A'); codeLines.push('}\u000A'); codeLines.push(''); codeLines.push('');
+  </script>
+  <script src="site.js" async></script>
+</body>
+
 </html>
