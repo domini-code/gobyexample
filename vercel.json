@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "routes": [
+    {
+      "src": "/public",
+      "dest": "/public",
+      "headers": {
+        "Content-Type": "text/html"
+      }
+    }
+  ]
+}
