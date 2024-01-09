@@ -2,8 +2,8 @@
   "version": 2,
   "routes": [
     {
-      "src": "/public",
-      "dest": "/public",
+      "src": "/public/for",
+      "dest": "/public/for",
       "headers": {
         "Content-Type": "text/html"
       }
