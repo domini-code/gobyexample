@@ -29,10 +29,12 @@
 
       <tr>
         <td class="docs">
-          <p>Reading and writing files are basic tasks needed for
+          <!--  <p>Reading and writing files are basic tasks needed for
             many Go programs. First we&rsquo;ll look at some examples of
-            reading files.</p>
-
+            reading files.</p> -->
+          <p>Leer y escribir archivos son tareas básicas necesarias para muchos programas en Go. Primero, veremos
+            algunos ejemplos
+            de lectura de archivos.</p>
         </td>
         <td class="code empty leading">
 
@@ -69,9 +71,11 @@
 
       <tr>
         <td class="docs">
-          <p>Reading files requires checking most calls for errors.
-            This helper will streamline our error checks below.</p>
-
+          <!--  <p>Reading files requires checking most calls for errors.
+            This helper will streamline our error checks below.</p> -->
+          <p>Leer archivos requiere verificar la mayoría de las llamadas en busca de errores. Este ayudante simplificará
+            nuestras
+            comprobaciones de errores a continuación.</p>
         </td>
         <td class="code leading">
 
@@ -96,8 +100,10 @@
 
       <tr>
         <td class="docs">
-          <p>Perhaps the most basic file reading task is
-            slurping a file&rsquo;s entire contents into memory.</p>
+          <!--  <p>Perhaps the most basic file reading task is
+            slurping a file&rsquo;s entire contents into memory.</p> -->
+          <p>Tal vez la tarea más básica de lectura de archivos sea absorber todo el contenido de un archivo en la
+            memoria.</p>
 
         </td>
         <td class="code leading">
@@ -111,10 +117,12 @@
 
       <tr>
         <td class="docs">
-          <p>You&rsquo;ll often want more control over how and what
+          <!-- <p>You&rsquo;ll often want more control over how and what
             parts of a file are read. For these tasks, start
-            by <code>Open</code>ing a file to obtain an <code>os.File</code> value.</p>
-
+            by <code>Open</code>ing a file to obtain an <code>os.File</code> value.</p> -->
+          <p>A menudo querrás más control sobre cómo y qué partes de un archivo se leen. Para estas tareas, comienza por
+            <code>Open</code> (abrir) un archivo para obtener un valor de <code>os.File</code>.
+          </p>
         </td>
         <td class="code leading">
 
@@ -126,10 +134,12 @@
 
       <tr>
         <td class="docs">
-          <p>Read some bytes from the beginning of the file.
+          <!--  <p>Read some bytes from the beginning of the file.
             Allow up to 5 to be read but also note how many
-            actually were read.</p>
-
+            actually were read.</p> -->
+          <p>Lee algunos bytes desde el principio del archivo. Permite que se lean hasta 5, pero también ten en cuenta
+            cuántos se
+            leyeron realmente.</p>
         </td>
         <td class="code leading">
 
@@ -143,9 +153,11 @@
 
       <tr>
         <td class="docs">
-          <p>You can also <code>Seek</code> to a known location in the file
-            and <code>Read</code> from there.</p>
-
+          <!--  <p>You can also <code>Seek</code> to a known location in the file
+            and <code>Read</code> from there.</p> -->
+          <p>También puedes <code>Seek</code> (buscar) una ubicación conocida en el archivo y <code>Read</code> (leer)
+            desde allí.
+          </p>
         </td>
         <td class="code leading">
 
@@ -162,10 +174,16 @@
 
       <tr>
         <td class="docs">
-          <p>The <code>io</code> package provides some functions that may
+          <!--  <p>The <code>io</code> package provides some functions that may
             be helpful for file reading. For example, reads
             like the ones above can be more robustly
-            implemented with <code>ReadAtLeast</code>.</p>
+            implemented with <code>ReadAtLeast</code>.</p> -->
+          <p>El paquete <code>io</code> proporciona algunas funciones que pueden ser útiles para la lectura de archivos.
+            Por
+            ejemplo, lecturas como las anteriores pueden implementarse de manera más robusta con
+            <code>ReadAtLeast</code>.
+          </p>
+
 
         </td>
         <td class="code leading">
@@ -182,8 +200,9 @@
 
       <tr>
         <td class="docs">
-          <p>There is no built-in rewind, but <code>Seek(0, 0)</code>
-            accomplishes this.</p>
+          <!-- <p>There is no built-in rewind, but <code>Seek(0, 0)</code>
+            accomplishes this.</p> -->
+          <p>No hay una función incorporada para rebobinar, pero <code>Seek(0, 0)</code> logra esto.</p>
 
         </td>
         <td class="code leading">
@@ -196,10 +215,13 @@
 
       <tr>
         <td class="docs">
-          <p>The <code>bufio</code> package implements a buffered
+          <!--  <p>The <code>bufio</code> package implements a buffered
             reader that may be useful both for its efficiency
             with many small reads and because of the additional
-            reading methods it provides.</p>
+            reading methods it provides.</p> -->
+          <p>El paquete <code>bufio</code> implementa un lector con buffer que puede ser útil tanto por su eficiencia
+            con muchas
+            lecturas pequeñas como por los métodos adicionales de lectura que proporciona.</p>
 
         </td>
         <td class="code leading">
@@ -214,10 +236,15 @@
 
       <tr>
         <td class="docs">
-          <p>Close the file when you&rsquo;re done (usually this would
+          <!--  <p>Close the file when you&rsquo;re done (usually this would
             be scheduled immediately after <code>Open</code>ing with
             <code>defer</code>).
-          </p>
+          </p> -->
+          <p>Cierra el archivo cuando hayas terminado (normalmente esto se programaría inmediatamente después de
+            <code>Open</code>
+            (abrir) con <code>defer</code>).</p>
+
+
 
         </td>
         <td class="code">
@@ -252,8 +279,8 @@
 
       <tr>
         <td class="docs">
-          <p>Next we&rsquo;ll look at writing files.</p>
-
+          <!-- <p>Next we&rsquo;ll look at writing files.</p> -->
+          <p>A continuación, veremos cómo escribir archivos.</p>
         </td>
         <td class="code empty">
 
@@ -265,7 +292,7 @@
 
 
     <p class="next">
-      Siguiente ejemplo: <a href="writing-files">Writing Files</a>.
+      Siguiente ejemplo: <a href="writing-files.html">Writing Files</a>.
     </p>
 
 

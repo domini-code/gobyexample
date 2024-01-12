@@ -29,11 +29,20 @@
 
       <tr>
         <td class="docs">
-          <p><a href="https://en.wikipedia.org/wiki/Command-line_interface#Command-line_option"><em>Command-line
+          <!--   <p><a href="https://en.wikipedia.org/wiki/Command-line_interface#Command-line_option"><em>Command-line
                 flags</em></a>
             are a common way to specify options for command-line
             programs. For example, in <code>wc -l</code> the <code>-l</code> is a
-            command-line flag.</p>
+            command-line flag.</p> -->
+          <p><a href="https://en.wikipedia.org/wiki/Command-line_interface#Command-line_option"
+              target="_blank"><em>Flags de línea de
+                comandos</em></a>
+            son una forma común de especificar opciones para programas de línea de comandos. Por ejemplo, en
+            <code>wc -l</code> el
+            <code>-l</code> es un
+            flag de línea de comandos.
+          </p>
+
 
         </td>
         <td class="code empty leading">
@@ -56,10 +65,12 @@
 
       <tr>
         <td class="docs">
-          <p>Go provides a <code>flag</code> package supporting basic
+          <!-- <p>Go provides a <code>flag</code> package supporting basic
             command-line flag parsing. We&rsquo;ll use this package to
-            implement our example command-line program.</p>
-
+            implement our example command-line program.</p> -->
+          <p>Go proporciona un paquete <code>flag</code> que soporta el análisis básico de flags de línea de comandos.
+            Utilizaremos este paquete para
+            implementar nuestro programa de ejemplo de línea de comandos.</p>
         </td>
         <td class="code leading">
 
@@ -83,13 +94,18 @@
 
       <tr>
         <td class="docs">
-          <p>Basic flag declarations are available for string,
+          <!--   <p>Basic flag declarations are available for string,
             integer, and boolean options. Here we declare a
             string flag <code>word</code> with a default value <code>&quot;foo&quot;</code>
             and a short description. This <code>flag.String</code> function
             returns a string pointer (not a string value);
-            we&rsquo;ll see how to use this pointer below.</p>
-
+            we&rsquo;ll see how to use this pointer below.</p> -->
+          <p>Las declaraciones básicas de flags están disponibles para opciones de tipo string,
+            entero y booleano. Aquí declaramos un
+            flag de tipo string <code>word</code> con un valor por defecto <code>&quot;foo&quot;</code>
+            y una breve descripción. Esta función <code>flag.String</code>
+            devuelve un puntero a string (no un valor de string);
+            veremos cómo usar este puntero más adelante.</p>
         </td>
         <td class="code leading">
 
@@ -100,8 +116,10 @@
 
       <tr>
         <td class="docs">
-          <p>This declares <code>numb</code> and <code>fork</code> flags, using a
-            similar approach to the <code>word</code> flag.</p>
+          <!-- <p>This declares <code>numb</code> and <code>fork</code> flags, using a
+            similar approach to the <code>word</code> flag.</p> -->
+          <p>Esto declara los flags <code>numb</code> y <code>fork</code>, utilizando un
+            enfoque similar al flag <code>word</code>.</p>
 
         </td>
         <td class="code leading">
@@ -114,11 +132,14 @@
 
       <tr>
         <td class="docs">
-          <p>It&rsquo;s also possible to declare an option that uses an
+          <!--   <p>It&rsquo;s also possible to declare an option that uses an
             existing var declared elsewhere in the program.
             Note that we need to pass in a pointer to the flag
-            declaration function.</p>
-
+            declaration function.</p> -->
+          <p>También es posible declarar una opción que utiliza una
+            var existente declarada en otro lugar del programa.
+            Ten en cuenta que necesitamos pasar un puntero a la función
+            de declaración del flag.</p>
         </td>
         <td class="code leading">
 
@@ -130,8 +151,11 @@
 
       <tr>
         <td class="docs">
-          <p>Once all flags are declared, call <code>flag.Parse()</code>
-            to execute the command-line parsing.</p>
+          <!--  <p>Once all flags are declared, call <code>flag.Parse()</code>
+            to execute the command-line parsing.</p> -->
+          <p>Una vez que todos los flags están declarados, llama a <code>flag.Parse()</code>
+            para ejecutar el análisis de la línea de comandos.</p>
+
 
         </td>
         <td class="code leading">
@@ -143,10 +167,14 @@
 
       <tr>
         <td class="docs">
-          <p>Here we&rsquo;ll just dump out the parsed options and
+          <!--  <p>Here we&rsquo;ll just dump out the parsed options and
             any trailing positional arguments. Note that we
             need to dereference the pointers with e.g. <code>*wordPtr</code>
-            to get the actual option values.</p>
+            to get the actual option values.</p> -->
+          <p>Aquí simplemente mostraremos las opciones analizadas y
+            cualquier argumento posicional restante. Ten en cuenta que necesitamos
+            desreferenciar los punteros con, por ejemplo, <code>*wordPtr</code>
+            para obtener los valores reales de las opciones.</p>
 
         </td>
         <td class="code">
@@ -166,9 +194,13 @@
 
       <tr>
         <td class="docs">
-          <p>To experiment with the command-line flags program it&rsquo;s
+          <!--  <p>To experiment with the command-line flags program it&rsquo;s
             best to first compile it and then run the resulting
             binary directly.</p>
+ -->
+          <p>Para experimentar con el programa de flags de línea de comandos es mejor
+            primero compilarlo y luego ejecutar el binario resultante directamente.</p>
+
 
         </td>
         <td class="code leading">
@@ -180,8 +212,10 @@
 
       <tr>
         <td class="docs">
-          <p>Try out the built program by first giving it values for
-            all flags.</p>
+          <!--   <p>Try out the built program by first giving it values for
+            all flags.</p> -->
+          <p>Prueba el programa construido dándole primero valores para
+            todos los flags.</p>
 
         </td>
         <td class="code leading">
@@ -197,8 +231,11 @@
 
       <tr>
         <td class="docs">
-          <p>Note that if you omit flags they automatically take
-            their default values.</p>
+          <!--  <p>Note that if you omit flags they automatically take
+            their default values.</p> -->
+          <p>Ten en cuenta que si omites flags, automáticamente toman
+            sus valores por defecto.</p>
+
 
         </td>
         <td class="code leading">
@@ -214,8 +251,10 @@
 
       <tr>
         <td class="docs">
-          <p>Trailing positional arguments can be provided after
-            any flags.</p>
+          <!--  <p>Trailing positional arguments can be provided after
+            any flags.</p> -->
+          <p>Los argumentos posicionales restantes se pueden proporcionar después
+            de cualquier flag.</p>
 
         </td>
         <td class="code leading">
@@ -230,9 +269,13 @@
 
       <tr>
         <td class="docs">
-          <p>Note that the <code>flag</code> package requires all flags to
+          <!--  <p>Note that the <code>flag</code> package requires all flags to
             appear before positional arguments (otherwise the flags
-            will be interpreted as positional arguments).</p>
+            will be interpreted as positional arguments).</p> -->
+          <p>Ten en cuenta que el paquete <code>flag</code> requiere que todos los flags
+            aparezcan antes de los argumentos posicionales (de lo contrario, los flags
+            serán interpretados como argumentos posicionales).</p>
+
 
         </td>
         <td class="code leading">
@@ -249,9 +292,10 @@
 
       <tr>
         <td class="docs">
-          <p>Use <code>-h</code> or <code>--help</code> flags to get automatically
-            generated help text for the command-line program.</p>
-
+          <!--  <p>Use <code>-h</code> or <code>--help</code> flags to get automatically
+            generated help text for the command-line program.</p> -->
+          <p>Usa los flags <code>-h</code> o <code>--help</code> para obtener texto de ayuda
+            generado automáticamente para el programa de línea de comandos.</p>
         </td>
         <td class="code leading">
 
@@ -267,10 +311,15 @@
 
       <tr>
         <td class="docs">
-          <p>If you provide a flag that wasn&rsquo;t specified to the
+          <!--  <p>If you provide a flag that wasn&rsquo;t specified to the
             <code>flag</code> package, the program will print an error message
             and show the help text again.
+          </p> -->
+          <p>Si proporcionas un flag que no fue especificado al paquete <code>flag</code>,
+            el programa imprimirá un mensaje de error
+            y mostrará el texto de ayuda nuevamente.
           </p>
+
 
         </td>
         <td class="code">
@@ -286,7 +335,7 @@
 
 
     <p class="next">
-      Siguiente ejemplo: <a href="command-line-subcommands">Command-Line Subcommands</a>.
+      Siguiente ejemplo: <a href="command-line-subcommands.html">Command-Line Subcommands</a>.
     </p>
 
 

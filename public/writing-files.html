@@ -29,9 +29,10 @@
 
       <tr>
         <td class="docs">
-          <p>Writing files in Go follows similar patterns to the
-            ones we saw earlier for reading.</p>
-
+          <!--   <p>Writing files in Go follows similar patterns to the
+            ones we saw earlier for reading.</p> -->
+          <p>Escribir archivos en Go sigue patrones similares a los
+            que vimos anteriormente para leer.</p>
         </td>
         <td class="code empty leading">
 
@@ -92,8 +93,11 @@
 
       <tr>
         <td class="docs">
-          <p>To start, here&rsquo;s how to dump a string (or just
-            bytes) into a file.</p>
+          <!--  <p>To start, here&rsquo;s how to dump a string (or just
+            bytes) into a file.</p> -->
+          <p>Para empezar, aquí te mostramos cómo volcar una cadena (o simplemente
+            bytes) en un archivo.</p>
+
 
         </td>
         <td class="code leading">
@@ -107,8 +111,8 @@
 
       <tr>
         <td class="docs">
-          <p>For more granular writes, open a file for writing.</p>
-
+          <!-- <p>For more granular writes, open a file for writing.</p> -->
+          <p>Para escrituras más detalladas, abre un archivo para escribir.</p>
         </td>
         <td class="code leading">
 
@@ -120,8 +124,10 @@
 
       <tr>
         <td class="docs">
-          <p>It&rsquo;s idiomatic to defer a <code>Close</code> immediately
-            after opening a file.</p>
+          <!--  <p>It&rsquo;s idiomatic to defer a <code>Close</code> immediately
+            after opening a file.</p> -->
+          <p>Es idiomático hacer un <code>Close</code> diferido inmediatamente
+            después de abrir un archivo.</p>
 
         </td>
         <td class="code leading">
@@ -133,8 +139,8 @@
 
       <tr>
         <td class="docs">
-          <p>You can <code>Write</code> byte slices as you&rsquo;d expect.</p>
-
+          <!--  <p>You can <code>Write</code> byte slices as you&rsquo;d expect.</p> -->
+          <p>Puedes <code>Write</code> (escribir) secuencias de bytes como esperarías.</p>
         </td>
         <td class="code leading">
 
@@ -148,7 +154,10 @@
 
       <tr>
         <td class="docs">
-          <p>A <code>WriteString</code> is also available.</p>
+          <!--   <p>A <code>WriteString</code> is also available.</p> -->
+          <p>También está disponible un <code>WriteString</code>.</p>
+
+
 
         </td>
         <td class="code leading">
@@ -162,8 +171,8 @@
 
       <tr>
         <td class="docs">
-          <p>Issue a <code>Sync</code> to flush writes to stable storage.</p>
-
+          <!-- <p>Issue a <code>Sync</code> to flush writes to stable storage.</p> -->
+          <p>Emite un <code>Sync</code> para vaciar las escrituras en el almacenamiento estable.</p>
         </td>
         <td class="code leading">
 
@@ -174,8 +183,12 @@
 
       <tr>
         <td class="docs">
-          <p><code>bufio</code> provides buffered writers in addition
+          <!--  <p><code>bufio</code> provides buffered writers in addition
             to the buffered readers we saw earlier.</p>
+ -->
+          <p><code>bufio</code> proporciona escritores con buffer además
+            de los lectores con buffer que vimos anteriormente.</p>
+
 
         </td>
         <td class="code leading">
@@ -190,9 +203,10 @@
 
       <tr>
         <td class="docs">
-          <p>Use <code>Flush</code> to ensure all buffered operations have
-            been applied to the underlying writer.</p>
-
+          <!--  <p>Use <code>Flush</code> to ensure all buffered operations have
+            been applied to the underlying writer.</p> -->
+          <p>Usa <code>Flush</code> para asegurarte de que todas las operaciones en buffer se
+            hayan aplicado al escritor subyacente.</p>
         </td>
         <td class="code leading">
 
@@ -218,7 +232,9 @@
 
       <tr>
         <td class="docs">
-          <p>Try running the file-writing code.</p>
+          <!--    <p>Try running the file-writing code.</p> -->
+          <p>Intenta ejecutar el código de escritura de archivos.</p>
+
 
         </td>
         <td class="code leading">
@@ -233,7 +249,9 @@
 
       <tr>
         <td class="docs">
-          <p>Then check the contents of the written files.</p>
+          <!--  <p>Then check the contents of the written files.</p> -->
+          <p>Luego verifica el contenido de los archivos escritos.</p>
+
 
         </td>
         <td class="code leading">
@@ -250,9 +268,10 @@
 
       <tr>
         <td class="docs">
-          <p>Next we&rsquo;ll look at applying some of the file I/O ideas
-            we&rsquo;ve just seen to the <code>stdin</code> and <code>stdout</code> streams.</p>
-
+          <!--  <p>Next we&rsquo;ll look at applying some of the file I/O ideas
+            we&rsquo;ve just seen to the <code>stdin</code> and <code>stdout</code> streams.</p> -->
+          <p>A continuación, veremos cómo aplicar algunas de las ideas de E/S de archivos
+            que acabamos de ver a los flujos de <code>stdin</code> y <code>stdout</code>.</p>
         </td>
         <td class="code empty">
 
@@ -264,7 +283,7 @@
 
 
     <p class="next">
-      Siguiente ejemplo: <a href="line-filters">Line Filters</a>.
+      Siguiente ejemplo: <a href="line-filters.html">Line Filters</a>.
     </p>
 
 

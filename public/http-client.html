@@ -29,11 +29,14 @@
 
       <tr>
         <td class="docs">
-          <p>The Go standard library comes with excellent support
+          <!--   <p>The Go standard library comes with excellent support
             for HTTP clients and servers in the <code>net/http</code>
             package. In this example we&rsquo;ll use it to issue simple
-            HTTP requests.</p>
-
+            HTTP requests.</p> -->
+          <p>La biblioteca estándar de Go viene con un excelente soporte
+            para clientes y servidores HTTP en el paquete <code>net/http</code>.
+            En este ejemplo lo utilizaremos para realizar simples
+            peticiones HTTP.</p>
         </td>
         <td class="code leading">
           <a href="https://go.dev/play/p/vFW_el7oHMk"><img title="Run code" src="play.png" class="run" /></a><img
@@ -70,13 +73,18 @@
 
       <tr>
         <td class="docs">
-          <p>Issue an HTTP GET request to a server. <code>http.Get</code> is a
+          <!--        <p>Issue an HTTP GET request to a server. <code>http.Get</code> is a
             convenient shortcut around creating an <code>http.Client</code>
             object and calling its <code>Get</code> method; it uses the
             <code>http.DefaultClient</code> object which has useful default
             settings.
           </p>
-
+ -->
+          <p>Realiza una petición HTTP GET a un servidor. <code>http.Get</code> es un
+            atajo conveniente que evita crear un objeto <code>http.Client</code>
+            y llamar a su método <code>Get</code>; utiliza el
+            objeto <code>http.DefaultClient</code> que tiene configuraciones predeterminadas útiles.
+          </p>
         </td>
         <td class="code leading">
 
@@ -91,7 +99,9 @@
 
       <tr>
         <td class="docs">
-          <p>Print the HTTP response status.</p>
+          <!-- <p>Print the HTTP response status.</p> -->
+          <p>Imprime el estado de la respuesta HTTP.</p>
+
 
         </td>
         <td class="code leading">
@@ -103,8 +113,8 @@
 
       <tr>
         <td class="docs">
-          <p>Print the first 5 lines of the response body.</p>
-
+          <!--   <p>Print the first 5 lines of the response body.</p> -->
+          <p>Imprime las primeras 5 líneas del cuerpo de la respuesta.</p>
         </td>
         <td class="code leading">
 
@@ -153,7 +163,7 @@
 
 
     <p class="next">
-      Siguiente ejemplo: <a href="http-server">HTTP Server</a>.
+      Siguiente ejemplo: <a href="http-server.html">HTTP Server</a>.
     </p>
 
 

@@ -29,11 +29,14 @@
 
       <tr>
         <td class="docs">
-          <p>A <em>line filter</em> is a common type of program that reads
+          <!--  <p>A <em>line filter</em> is a common type of program that reads
             input on stdin, processes it, and then prints some
             derived result to stdout. <code>grep</code> and <code>sed</code> are common
-            line filters.</p>
-
+            line filters.</p> -->
+          <p>Un <em>filtro de línea</em> es un tipo común de programa que lee
+            entrada en stdin, la procesa y luego imprime algún
+            resultado derivado en stdout. <code>grep</code> y <code>sed</code> son filtros de línea
+            comunes.</p>
         </td>
         <td class="code empty leading">
 
@@ -43,10 +46,12 @@
 
       <tr>
         <td class="docs">
-          <p>Here&rsquo;s an example line filter in Go that writes a
+          <!-- <p>Here&rsquo;s an example line filter in Go that writes a
             capitalized version of all input text. You can use this
-            pattern to write your own Go line filters.</p>
-
+            pattern to write your own Go line filters.</p> -->
+          <p>Aquí tienes un ejemplo de filtro de línea en Go que escribe una
+            versión en mayúsculas de todo el texto de entrada. Puedes usar este
+            patrón para escribir tus propios filtros de línea en Go.</p>
         </td>
         <td class="code leading">
           <a href="https://go.dev/play/p/kNcupWRsYPP"><img title="Run code" src="play.png" class="run" /></a><img
@@ -84,10 +89,15 @@
 
       <tr>
         <td class="docs">
-          <p>Wrapping the unbuffered <code>os.Stdin</code> with a buffered
+          <!--  <p>Wrapping the unbuffered <code>os.Stdin</code> with a buffered
             scanner gives us a convenient <code>Scan</code> method that
             advances the scanner to the next token; which is
-            the next line in the default scanner.</p>
+            the next line in the default scanner.</p> -->
+          <p>Envolver el <code>os.Stdin</code> sin buffer con un escáner con buffer
+            nos da un conveniente método <code>Scan</code> que
+            avanza el escáner al siguiente token; que es
+            la siguiente línea en el escáner predeterminado.</p>
+
 
         </td>
         <td class="code leading">
@@ -99,9 +109,10 @@
 
       <tr>
         <td class="docs">
-          <p><code>Text</code> returns the current token, here the next line,
-            from the input.</p>
-
+          <!--  <p><code>Text</code> returns the current token, here the next line,
+            from the input.</p> -->
+          <p><code>Text</code> devuelve el token actual, aquí la siguiente línea,
+            de la entrada.</p>
         </td>
         <td class="code leading">
 
@@ -123,7 +134,9 @@
 
       <tr>
         <td class="docs">
-          <p>Write out the uppercased line.</p>
+          <!-- <p>Write out the uppercased line.</p> -->
+          <p>Escribe la línea en mayúsculas.</p>
+
 
         </td>
         <td class="code leading">
@@ -135,9 +148,10 @@
 
       <tr>
         <td class="docs">
-          <p>Check for errors during <code>Scan</code>. End of file is
-            expected and not reported by <code>Scan</code> as an error.</p>
-
+          <!--  <p>Check for errors during <code>Scan</code>. End of file is
+            expected and not reported by <code>Scan</code> as an error.</p> -->
+          <p>Verifica si hay errores durante <code>Scan</code>. El fin de archivo es
+            esperado y no es reportado por <code>Scan</code> como un error.</p>
         </td>
         <td class="code">
 
@@ -155,8 +169,11 @@
 
       <tr>
         <td class="docs">
-          <p>To try out our line filter, first make a file with a few
-            lowercase lines.</p>
+          <!--  <p>To try out our line filter, first make a file with a few
+            lowercase lines.</p> -->
+          <p>Para probar nuestro filtro de línea, primero crea un archivo con algunas
+            líneas en minúsculas.</p>
+
 
         </td>
         <td class="code leading">
@@ -169,8 +186,8 @@
 
       <tr>
         <td class="docs">
-          <p>Then use the line filter to get uppercase lines.</p>
-
+          <!-- <p>Then use the line filter to get uppercase lines.</p> -->
+          <p>Luego usa el filtro de línea para obtener líneas en mayúsculas.</p>
         </td>
         <td class="code">
 
@@ -184,7 +201,7 @@
 
 
     <p class="next">
-      Siguiente ejemplo: <a href="file-paths">File Paths</a>.
+      Siguiente ejemplo: <a href="file-paths.html">File Paths</a>.
     </p>
 
 

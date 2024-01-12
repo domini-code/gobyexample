@@ -29,11 +29,16 @@
 
       <tr>
         <td class="docs">
-          <p><a href="https://en.wikipedia.org/wiki/Environment_variable">Environment variables</a>
+          <!-- <p><a href="https://en.wikipedia.org/wiki/Environment_variable">Environment variables</a>
             are a universal mechanism for <a href="https://www.12factor.net/config">conveying configuration
               information to Unix programs</a>.
-            Let&rsquo;s look at how to set, get, and list environment variables.</p>
-
+            Let&rsquo;s look at how to set, get, and list environment variables.</p> -->
+          <p><a href="https://en.wikipedia.org/wiki/Environment_variable" target="_blank">Las variables de entorno</a>
+            son un mecanismo universal para <a href="https://www.12factor.net/config" target="_blank">transmitir
+              información de
+              configuración a
+              programas Unix</a>.
+            Veamos cómo establecer, obtener y listar variables de entorno.</p>
         </td>
         <td class="code empty leading">
 
@@ -80,11 +85,14 @@
 
       <tr>
         <td class="docs">
-          <p>To set a key/value pair, use <code>os.Setenv</code>. To get a
+          <!--  <p>To set a key/value pair, use <code>os.Setenv</code>. To get a
             value for a key, use <code>os.Getenv</code>. This will return
             an empty string if the key isn&rsquo;t present in the
-            environment.</p>
-
+            environment.</p> -->
+          <p>Para establecer un par clave/valor, usa <code>os.Setenv</code>. Para obtener un
+            valor para una clave, usa <code>os.Getenv</code>. Esto devolverá
+            una cadena vacía si la clave no está presente en el
+            entorno.</p>
         </td>
         <td class="code leading">
 
@@ -97,11 +105,14 @@
 
       <tr>
         <td class="docs">
-          <p>Use <code>os.Environ</code> to list all key/value pairs in the
+          <!--  <p>Use <code>os.Environ</code> to list all key/value pairs in the
             environment. This returns a slice of strings in the
             form <code>KEY=value</code>. You can <code>strings.SplitN</code> them to
-            get the key and value. Here we print all the keys.</p>
-
+            get the key and value. Here we print all the keys.</p> -->
+          <p>Usa <code>os.Environ</code> para listar todos los pares clave/valor en el
+            entorno. Esto devuelve una lista de cadenas en la
+            forma <code>KEY=value</code>. Puedes usar <code>strings.SplitN</code> para
+            obtener la clave y el valor. Aquí imprimimos todas las claves.</p>
         </td>
         <td class="code">
 
@@ -120,9 +131,13 @@
 
       <tr>
         <td class="docs">
-          <p>Running the program shows that we pick up the value
+          <!--  <p>Running the program shows that we pick up the value
             for <code>FOO</code> that we set in the program, but that
             <code>BAR</code> is empty.
+          </p> -->
+          <p>Al ejecutar el programa, vemos que recoge el valor
+            para <code>FOO</code> que establecimos en el programa, pero que
+            <code>BAR</code> está vacío.
           </p>
 
         </td>
@@ -136,9 +151,10 @@
 
       <tr>
         <td class="docs">
-          <p>The list of keys in the environment will depend on your
-            particular machine.</p>
-
+          <!--   <p>The list of keys in the environment will depend on your
+            particular machine.</p> -->
+          <p>La lista de claves en el entorno dependerá de tu
+            máquina en particular.</p>
         </td>
         <td class="code leading">
 
@@ -152,8 +168,9 @@
 
       <tr>
         <td class="docs">
-          <p>If we set <code>BAR</code> in the environment first, the running
-            program picks that value up.</p>
+          <!--   <p>If we set <code>BAR</code> in the environment first, the running
+            program picks that value up.</p> -->
+          <p>Si establecemos <code>BAR</code> en el entorno primero, el programa en ejecución recoge ese valor.</p>
 
         </td>
         <td class="code">
@@ -169,7 +186,7 @@
 
 
     <p class="next">
-      Siguiente ejemplo: <a href="logging">Logging</a>.
+      Siguiente ejemplo: <a href="logging.html">Logging</a>.
     </p>
 
 

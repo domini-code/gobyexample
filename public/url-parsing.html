@@ -29,11 +29,15 @@
 
       <tr>
         <td class="docs">
-          <p>URLs provide a <a
+          <!--    <p>URLs provide a <a
               href="https://adam.herokuapp.com/past/2010/3/30/urls_are_the_uniform_way_to_locate_resources/">uniform way
               to locate resources</a>.
-            Here&rsquo;s how to parse URLs in Go.</p>
-
+            Here&rsquo;s how to parse URLs in Go.</p> -->
+          <p>Las URL proporcionan una <a
+              href="https://adam.herokuapp.com/past/2010/3/30/urls_are_the_uniform_way_to_locate_resources/"
+              target="_blank">manera
+              uniforme de
+              localizar recursos</a>. Aquí te mostramos cómo analizar URLs en Go.</p>
         </td>
         <td class="code empty leading">
 
@@ -80,9 +84,12 @@
 
       <tr>
         <td class="docs">
-          <p>We&rsquo;ll parse this example URL, which includes a
+          <!--   <p>We&rsquo;ll parse this example URL, which includes a
             scheme, authentication info, host, port, path,
-            query params, and query fragment.</p>
+            query params, and query fragment.</p> -->
+          <p>Vamos a analizar esta URL de ejemplo, que incluye un esquema, información de autenticación, host, puerto,
+            ruta,
+            parámetros de consulta y fragmento de consulta.</p>
 
         </td>
         <td class="code leading">
@@ -94,7 +101,9 @@
 
       <tr>
         <td class="docs">
-          <p>Parse the URL and ensure there are no errors.</p>
+          <!--  <p>Parse the URL and ensure there are no errors.</p> -->
+          <p>Analiza la URL y asegúrate de que no haya errores.</p>
+
 
         </td>
         <td class="code leading">
@@ -108,8 +117,8 @@
 
       <tr>
         <td class="docs">
-          <p>Accessing the scheme is straightforward.</p>
-
+          <!--  <p>Accessing the scheme is straightforward.</p> -->
+          <p>Acceder al esquema es sencillo.</p>
         </td>
         <td class="code leading">
 
@@ -120,10 +129,14 @@
 
       <tr>
         <td class="docs">
-          <p><code>User</code> contains all authentication info; call
+          <!--  <p><code>User</code> contains all authentication info; call
             <code>Username</code> and <code>Password</code> on this for individual
             values.
+          </p> -->
+          <p><code>User</code> contiene toda la información de autenticación; llama a <code>Username</code> y
+            <code>Password</code> en esto para obtener valores individuales.
           </p>
+
 
         </td>
         <td class="code leading">
@@ -138,9 +151,11 @@
 
       <tr>
         <td class="docs">
-          <p>The <code>Host</code> contains both the hostname and the port,
-            if present. Use <code>SplitHostPort</code> to extract them.</p>
-
+          <!--         <p>The <code>Host</code> contains both the hostname and the port,
+            if present. Use <code>SplitHostPort</code> to extract them.</p> -->
+          <p>El <code>Host</code> contiene tanto el nombre del host como el puerto, si está presente. Usa
+            <code>SplitHostPort</code> para extraerlos.
+          </p>
         </td>
         <td class="code leading">
 
@@ -154,8 +169,10 @@
 
       <tr>
         <td class="docs">
-          <p>Here we extract the <code>path</code> and the fragment after
-            the <code>#</code>.</p>
+          <!-- <p>Here we extract the <code>path</code> and the fragment after
+            the <code>#</code>.</p> -->
+          <p>Aquí extraemos la <code>path</code> (ruta) y el fragmento después del <code>#</code>.</p>
+
 
         </td>
         <td class="code leading">
@@ -168,11 +185,16 @@
 
       <tr>
         <td class="docs">
-          <p>To get query params in a string of <code>k=v</code> format,
+          <!-- <p>To get query params in a string of <code>k=v</code> format,
             use <code>RawQuery</code>. You can also parse query params
             into a map. The parsed query param maps are from
             strings to slices of strings, so index into <code>[0]</code>
-            if you only want the first value.</p>
+            if you only want the first value.</p> -->
+          <p>Para obtener parámetros de consulta en un formato de cadena de <code>k=v</code>, usa <code>RawQuery</code>.
+            También
+            puedes analizar los parámetros de consulta en un mapa. Los mapas de parámetros de consulta analizados son de
+            cadenas a
+            listas de cadenas, así que indexa en <code>[0]</code> si solo quieres el primer valor.</p>
 
         </td>
         <td class="code">
@@ -191,8 +213,9 @@
 
       <tr>
         <td class="docs">
-          <p>Running our URL parsing program shows all the different
-            pieces that we extracted.</p>
+          <!-- <p>Running our URL parsing program shows all the different
+            pieces that we extracted.</p> -->
+          <p>Ejecutar nuestro programa de análisis de URL muestra todas las diferentes piezas que hemos extraído.</p>
 
         </td>
         <td class="code">

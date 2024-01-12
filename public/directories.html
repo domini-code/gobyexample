@@ -29,10 +29,13 @@
 
       <tr>
         <td class="docs">
-          <p>Go has several useful functions for working with
+          <!--  <p>Go has several useful functions for working with
             <em>directories</em> in the file system.
           </p>
-
+ -->
+          <p>Go tiene varias funciones útiles para trabajar con
+            <em>directorios</em> en el sistema de archivos.
+          </p>
         </td>
         <td class="code empty leading">
 
@@ -94,8 +97,10 @@
 
       <tr>
         <td class="docs">
-          <p>Create a new sub-directory in the current working
-            directory.</p>
+          <!--   <p>Create a new sub-directory in the current working
+            directory.</p> -->
+          <p>Crea un nuevo subdirectorio en el directorio de trabajo actual.</p>
+
 
         </td>
         <td class="code leading">
@@ -108,12 +113,16 @@
 
       <tr>
         <td class="docs">
-          <p>When creating temporary directories, it&rsquo;s good
+          <!--  <p>When creating temporary directories, it&rsquo;s good
             practice to <code>defer</code> their removal. <code>os.RemoveAll</code>
             will delete a whole directory tree (similarly to
             <code>rm -rf</code>).
+          </p> -->
+          <p>Cuando se crean directorios temporales, es una buena
+            práctica <code>defer</code> su eliminación. <code>os.RemoveAll</code>
+            eliminará todo un árbol de directorios (de manera similar a
+            <code>rm -rf</code>).
           </p>
-
         </td>
         <td class="code leading">
 
@@ -124,7 +133,9 @@
 
       <tr>
         <td class="docs">
-          <p>Helper function to create a new empty file.</p>
+          <!--  <p>Helper function to create a new empty file.</p> -->
+          <p>Función auxiliar para crear un nuevo archivo vacío.</p>
+
 
         </td>
         <td class="code leading">
@@ -149,10 +160,12 @@
 
       <tr>
         <td class="docs">
-          <p>We can create a hierarchy of directories, including
+          <!--  <p>We can create a hierarchy of directories, including
             parents with <code>MkdirAll</code>. This is similar to the
-            command-line <code>mkdir -p</code>.</p>
-
+            command-line <code>mkdir -p</code>.</p> -->
+          <p>Podemos crear una jerarquía de directorios, incluyendo
+            los padres con <code>MkdirAll</code>. Esto es similar al
+            comando de línea <code>mkdir -p</code>.</p>
         </td>
         <td class="code leading">
 
@@ -177,8 +190,11 @@
 
       <tr>
         <td class="docs">
-          <p><code>ReadDir</code> lists directory contents, returning a
-            slice of <code>os.DirEntry</code> objects.</p>
+          <!--  <p><code>ReadDir</code> lists directory contents, returning a
+            slice of <code>os.DirEntry</code> objects.</p> -->
+          <p><code>ReadDir</code> lista los contenidos de un directorio, devolviendo una
+            lista de objetos <code>os.DirEntry</code>.</p>
+
 
         </td>
         <td class="code leading">
@@ -204,9 +220,10 @@
 
       <tr>
         <td class="docs">
-          <p><code>Chdir</code> lets us change the current working directory,
-            similarly to <code>cd</code>.</p>
-
+          <!--  <p><code>Chdir</code> lets us change the current working directory,
+            similarly to <code>cd</code>.</p> -->
+          <p><code>Chdir</code> nos permite cambiar el directorio de trabajo actual,
+            de manera similar a <code>cd</code>.</p>
         </td>
         <td class="code leading">
 
@@ -218,8 +235,12 @@
 
       <tr>
         <td class="docs">
-          <p>Now we&rsquo;ll see the contents of <code>subdir/parent/child</code>
-            when listing the <em>current</em> directory.</p>
+          <!--  <p>Now we&rsquo;ll see the contents of <code>subdir/parent/child</code>
+            when listing the <em>current</em> directory.</p> -->
+          <p>Ahora veremos los contenidos de <code>subdir/parent/child</code>
+            al listar el directorio <em>actual</em>.</p>
+
+
 
         </td>
         <td class="code leading">
@@ -245,8 +266,8 @@
 
       <tr>
         <td class="docs">
-          <p><code>cd</code> back to where we started.</p>
-
+          <!--  <p><code>cd</code> back to where we started.</p> -->
+          <p><code>cd</code> de vuelta a donde empezamos.</p>
         </td>
         <td class="code leading">
 
@@ -258,10 +279,16 @@
 
       <tr>
         <td class="docs">
-          <p>We can also visit a directory <em>recursively</em>,
+          <!--  <p>We can also visit a directory <em>recursively</em>,
             including all its sub-directories. <code>WalkDir</code> accepts
             a callback function to handle every file or
-            directory visited.</p>
+            directory visited.</p> -->
+          <p>También podemos visitar un directorio <em>recursivamente</em>,
+            incluyendo todos sus subdirectorios. <code>WalkDir</code> acepta
+            una función de callback para manejar cada archivo o
+            directorio visitado.</p>
+
+
 
         </td>
         <td class="code leading">
@@ -274,9 +301,10 @@
 
       <tr>
         <td class="docs">
-          <p><code>visit</code> is called for every file or directory found
-            recursively by <code>filepath.WalkDir</code>.</p>
-
+          <!--  <p><code>visit</code> is called for every file or directory found
+            recursively by <code>filepath.WalkDir</code>.</p> -->
+          <p><code>visit</code> es llamado para cada archivo o directorio encontrado
+            recursivamente por <code>filepath.WalkDir</code>.</p>
         </td>
         <td class="code">
 
@@ -323,7 +351,7 @@
 
 
     <p class="next">
-      Siguiente ejemplo: <a href="temporary-files-and-directories">Temporary Files and Directories</a>.
+      Siguiente ejemplo: <a href="temporary-files-and-directories.html">Temporary Files and Directories</a>.
     </p>
 
 

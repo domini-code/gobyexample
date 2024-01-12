@@ -29,13 +29,18 @@
 
       <tr>
         <td class="docs">
-          <p>Some command-line tools, like the <code>go</code> tool or <code>git</code>
+          <!--  <p>Some command-line tools, like the <code>go</code> tool or <code>git</code>
             have many <em>subcommands</em>, each with its own set of
             flags. For example, <code>go build</code> and <code>go get</code> are two
             different subcommands of the <code>go</code> tool.
             The <code>flag</code> package lets us easily define simple
-            subcommands that have their own flags.</p>
-
+            subcommands that have their own flags.</p> -->
+          <p>Algunas herramientas de línea de comandos, como la herramienta <code>go</code> o <code>git</code>,
+            tienen muchos <em>subcomandos</em>, cada uno con su propio conjunto de
+            flags. Por ejemplo, <code>go build</code> y <code>go get</code> son dos
+            subcomandos diferentes de la herramienta <code>go</code>.
+            El paquete <code>flag</code> nos permite definir fácilmente subcomandos
+            simples que tienen sus propios flags.</p>
         </td>
         <td class="code empty leading">
 
@@ -82,9 +87,12 @@
 
       <tr>
         <td class="docs">
-          <p>We declare a subcommand using the <code>NewFlagSet</code>
+          <!--  <p>We declare a subcommand using the <code>NewFlagSet</code>
             function, and proceed to define new flags specific
-            for this subcommand.</p>
+            for this subcommand.</p> -->
+          <p>Declaramos un subcomando usando la función <code>NewFlagSet</code>,
+            y procedemos a definir nuevos flags específicos
+            para este subcomando.</p>
 
         </td>
         <td class="code leading">
@@ -98,8 +106,10 @@
 
       <tr>
         <td class="docs">
-          <p>For a different subcommand we can define different
-            supported flags.</p>
+          <!--  <p>For a different subcommand we can define different
+            supported flags.</p> -->
+          <p>Para un subcomando diferente podemos definir diferentes
+            flags soportados.</p>
 
         </td>
         <td class="code leading">
@@ -112,8 +122,11 @@
 
       <tr>
         <td class="docs">
-          <p>The subcommand is expected as the first argument
-            to the program.</p>
+          <!-- <p>The subcommand is expected as the first argument
+            to the program.</p> -->
+          <p>Se espera que el subcomando sea el primer argumento
+            para el programa.</p>
+
 
         </td>
         <td class="code leading">
@@ -127,7 +140,8 @@
 
       <tr>
         <td class="docs">
-          <p>Check which subcommand is invoked.</p>
+          <!--  <p>Check which subcommand is invoked.</p> -->
+          <p>Comprueba qué subcomando se invoca.</p>
 
         </td>
         <td class="code leading">
@@ -139,8 +153,10 @@
 
       <tr>
         <td class="docs">
-          <p>For every subcommand, we parse its own flags and
-            have access to trailing positional arguments.</p>
+          <!--  <p>For every subcommand, we parse its own flags and
+            have access to trailing positional arguments.</p> -->
+          <p>Para cada subcomando, analizamos sus propios flags y
+            tenemos acceso a los argumentos posicionales finales.</p>
 
         </td>
         <td class="code">
@@ -181,7 +197,9 @@
 
       <tr>
         <td class="docs">
-          <p>First invoke the foo subcommand.</p>
+          <!-- <p>First invoke the foo subcommand.</p> -->
+          <p>Primero invoca el subcomando foo.</p>
+
 
         </td>
         <td class="code leading">
@@ -197,8 +215,8 @@
 
       <tr>
         <td class="docs">
-          <p>Now try bar.</p>
 
+          <p>Ahora prueba bar.</p>
         </td>
         <td class="code leading">
 
@@ -212,7 +230,9 @@
 
       <tr>
         <td class="docs">
-          <p>But bar won&rsquo;t accept foo&rsquo;s flags.</p>
+          <!--  <p>But bar won&rsquo;t accept foo&rsquo;s flags.</p> -->
+          <p>Pero bar no aceptará los flags de foo.</p>
+
 
         </td>
         <td class="code leading">
@@ -228,9 +248,10 @@
 
       <tr>
         <td class="docs">
-          <p>Next we&rsquo;ll look at environment variables, another common
-            way to parameterize programs.</p>
-
+          <!--  <p>Next we&rsquo;ll look at environment variables, another common
+            way to parameterize programs.</p> -->
+          <p>A continuación, veremos las variables de entorno, otra forma común
+            de parametrizar programas.</p>
         </td>
         <td class="code empty">
 
@@ -242,7 +263,7 @@
 
 
     <p class="next">
-      Siguiente ejemplo: <a href="environment-variables">Environment Variables</a>.
+      Siguiente ejemplo: <a href="environment-variables.html">Environment Variables</a>.
     </p>
 
 
